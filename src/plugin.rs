@@ -256,7 +256,7 @@ async fn select(
               JsonValue::Null
             }
           }
-          // "JSON" => JsonValue::Object(row.get(i)),
+          "JSON" => JsonValue::Object(row.get(i)),
           "BLOB" => {
             if let Ok(n) = row.try_get::<Vec<u8>, usize>(i) {
               JsonValue::Array(n.into_iter().map(|n| JsonValue::Number(n.into())).collect())
